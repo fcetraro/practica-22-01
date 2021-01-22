@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args)
     {
         //exercise1();
-        exercise2();
+        //exercise2();
+        exercise3();
     }
     static void exercise1(){
         String accountNumber = "123";
@@ -23,5 +24,14 @@ public class Main {
         System.out.println(anotherC.getCount()==1);
         newC.setCount(3);
         System.out.println(newC.getCount()==3);
+    }
+    static void exercise3(){
+        Libro newBook = new Libro();
+        newBook.setTitle("Harry Potter");
+        newBook.setIsbn("978316314641737379");
+        newBook.setAuthor("Rowling, J.K.");
+        Libro anotherBook = new Libro("no author","no title","no isbn");
+        System.out.println(newBook.toString());
+        System.out.println(anotherBook.toString());
     }
 }
