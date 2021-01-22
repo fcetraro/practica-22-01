@@ -6,7 +6,8 @@ public class Main {
         //exercise1();
         //exercise2();
         //exercise3();
-        exercise4();
+        //exercise4();
+        exercise5();
     }
     static void exercise1(){
         String accountNumber = "123";
@@ -55,5 +56,14 @@ public class Main {
         System.out.println(newFraction.toString());
         newFraction.divide(2);
         System.out.println(newFraction.toString());
+    }
+    static void exercise5(){
+        Fecha invalidDate = new Fecha(99,10,2020);
+        System.out.println(invalidDate.toString());
+        System.out.println(invalidDate.isValid());
+        Fecha newDate = new Fecha(31,12,2020);
+        newDate.addOneDay();
+        System.out.println(newDate.toString());
+        System.out.println(newDate.isValid());
     }
 }
