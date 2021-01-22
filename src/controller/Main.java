@@ -1,5 +1,7 @@
 package controller;
 
+import static util.StringUtil.rpad;
+
 public class Main {
     public static void main(String[] args)
     {
@@ -7,7 +9,8 @@ public class Main {
         //exercise2();
         //exercise3();
         //exercise4();
-        exercise5();
+        //exercise5();
+        exercise6();
     }
     static void exercise1(){
         String accountNumber = "123";
@@ -65,5 +68,11 @@ public class Main {
         newDate.addOneDay();
         System.out.println(newDate.toString());
         System.out.println(newDate.isValid());
+    }
+    static void exercise6(){
+        System.out.println(util.StringUtil.rpad("test",'x',3));
+        System.out.println(util.StringUtil.ltrim("   test   "));
+        System.out.println(util.StringUtil.rtrim("   test   "));
+        System.out.println(util.StringUtil.indexOfN("John|Paul|George|Ringo",'|',2));
     }
 }
