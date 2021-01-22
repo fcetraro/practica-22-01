@@ -5,7 +5,8 @@ public class Main {
     {
         //exercise1();
         //exercise2();
-        exercise3();
+        //exercise3();
+        exercise4();
     }
     static void exercise1(){
         String accountNumber = "123";
@@ -33,5 +34,26 @@ public class Main {
         Libro anotherBook = new Libro("no author","no title","no isbn");
         System.out.println(newBook.toString());
         System.out.println(anotherBook.toString());
+    }
+    static void exercise4(){
+        Fraccion newFraction = new Fraccion(0,2);
+        newFraction.add(2);
+        System.out.println(newFraction.toString());
+        Fraccion anotherFraction = new Fraccion(3,3);
+        newFraction.add(anotherFraction);
+        System.out.println(newFraction.toString());
+        System.out.println(anotherFraction.toString());
+        newFraction.substract(anotherFraction);
+        System.out.println(newFraction.toString());
+        newFraction.substract(1);
+        System.out.println(newFraction.toString());
+        newFraction.multiply(new Fraccion(2,1));
+        System.out.println(newFraction.toString());
+        newFraction.multiply(2);
+        System.out.println(newFraction.toString());
+        newFraction.divide(new Fraccion(4,1));
+        System.out.println(newFraction.toString());
+        newFraction.divide(2);
+        System.out.println(newFraction.toString());
     }
 }
