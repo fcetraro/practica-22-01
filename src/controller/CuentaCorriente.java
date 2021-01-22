@@ -1,8 +1,5 @@
 package controller;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class CuentaCorriente {
     private String accountNumber;
     private String cbu;
