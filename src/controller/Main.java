@@ -1,5 +1,12 @@
 package controller;
 
+import geometry.Circulo;
+import geometry.FiguraGeometrica;
+import geometry.Rectangulo;
+import geometry.Triangulo;
+import password.Exception.PasswordException;
+import password.Password;
+
 import static util.StringUtil.rpad;
 
 public class Main {
@@ -10,7 +17,9 @@ public class Main {
         //exercise3();
         //exercise4();
         //exercise5();
-        exercise6();
+        //exercise6();
+        //passwordExercise();
+        geometryExercise();
     }
     static void exercise1(){
         String accountNumber = "123";
@@ -74,5 +83,35 @@ public class Main {
         System.out.println(util.StringUtil.ltrim("   test   "));
         System.out.println(util.StringUtil.rtrim("   test   "));
         System.out.println(util.StringUtil.indexOfN("John|Paul|George|Ringo",'|',2));
+    }
+    static void passwordExercise(){
+        String regex = "[0-9]+";
+        Password password = new Password(regex);
+        System.out.println(password.isPasswordValid(""));
+        try{
+            password.setValue("");
+        } catch (PasswordException e){
+            e.printStackTrace();
+            System.out.println("This was expected!");
+        }
+        System.out.println(password.isPasswordValid("Mercado-Libre-2021"));
+        try{
+            password.setValue("Mercado-Libre-2021");
+        } catch (PasswordException e){
+            e.printStackTrace();
+            System.out.println("This was not expected!");
+        }
+    }
+    static void geometryExercise(){
+        // El error obtenido fue que faltaba crear los metodos de la clase abstracta padre "area()",
+        // para solucinarlo se debe implementar este metodo.
+        FiguraGeometrica triangle = new Triangulo(10,5);
+        FiguraGeometrica circle = new Circulo(5);
+        FiguraGeometrica rectangle = new Rectangulo(10,8);
+        FiguraGeometrica geometryArray[] = new FiguraGeometrica[3];
+        geometryArray[0]=triangle;
+        geometryArray[1]=circle;
+        geometryArray[2]=rectangle;
+        System.out.println(util.MathUtil.areaPromedio(geometryArray));
     }
 }

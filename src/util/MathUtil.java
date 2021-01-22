@@ -1,5 +1,7 @@
 package util;
 
+import geometry.FiguraGeometrica;
+
 public class MathUtil {
     public static int mcm(int num1, int num2){
         int mcm,i;
@@ -17,5 +19,13 @@ public class MathUtil {
                 i=i+1;
         }
         return mcm;
+    }
+    public static double areaPromedio(FiguraGeometrica arr[]){
+        int totalArea = 0;
+        for (int i = 0; i < arr.length; i++) {
+            totalArea+=arr[i].area();
+        }
+        double result = totalArea / arr.length;
+        return result;
     }
 }
