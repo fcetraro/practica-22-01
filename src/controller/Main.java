@@ -4,10 +4,11 @@ import geometry.Circulo;
 import geometry.FiguraGeometrica;
 import geometry.Rectangulo;
 import geometry.Triangulo;
-import password.Exception.PasswordException;
+import password.PasswordFuerte;
+import password.PasswordIntermedia;
+import password.PasswordSimple;
+import password.exception.PasswordException;
 import password.Password;
-
-import static util.StringUtil.rpad;
 
 public class Main {
     public static void main(String[] args)
@@ -18,8 +19,8 @@ public class Main {
         //exercise4();
         //exercise5();
         //exercise6();
-        //passwordExercise();
-        geometryExercise();
+        passwordExercise();
+        //geometryExercise();
     }
     static void exercise1(){
         String accountNumber = "123";
@@ -85,8 +86,7 @@ public class Main {
         System.out.println(util.StringUtil.indexOfN("John|Paul|George|Ringo",'|',2));
     }
     static void passwordExercise(){
-        String regex = "[0-9]+";
-        Password password = new Password(regex);
+        Password password = new PasswordFuerte();
         System.out.println(password.isPasswordValid(""));
         try{
             password.setValue("");
@@ -94,13 +94,19 @@ public class Main {
             e.printStackTrace();
             System.out.println("This was expected!");
         }
-        System.out.println(password.isPasswordValid("Mercado-Libre-2021"));
+        System.out.println(password.isPasswordValid("Mercado#Libre#2021"));
         try{
-            password.setValue("Mercado-Libre-2021");
+            password.setValue("Mercado#Libre#2021");
         } catch (PasswordException e){
             e.printStackTrace();
             System.out.println("This was not expected!");
         }
+        Password simplePassword = new PasswordSimple();
+        System.out.println(simplePassword.isPasswordValid("Password"));
+        System.out.println(simplePassword.isPasswordValid("pas"));
+        Password iPassword = new PasswordIntermedia();
+        System.out.println(iPassword.isPasswordValid("Password1"));
+        System.out.println(iPassword.isPasswordValid("Password"));
     }
     static void geometryExercise(){
         // El error obtenido fue que faltaba crear los metodos de la clase abstracta padre "area()",

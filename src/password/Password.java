@@ -1,8 +1,7 @@
 package password;
 
-import password.Exception.PasswordException;
+import password.exception.PasswordException;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Password {
@@ -12,20 +11,17 @@ public class Password {
         this.regex = regex;
     }
     public boolean isPasswordValid(String password){
-        Pattern pattern = Pattern.compile("[0-9]+");
-        Matcher matcher = pattern.matcher(password);
-
-        if(matcher.matches())
-            return true;
-        else
-            return false;
-
+        if(Pattern.matches(this.regex, password))  return true;
+        else return false;
     }
     public void setValue(String password) throws PasswordException {
         if(isPasswordValid(password)){
             this.value=password;
-            System.out.println("Password setted successfully!");
+            System.out.println("Password validated successfully!");
         } else {
+            // Considero que podria ser adecuado utilizar excepciones para identificar passwords incorrectos.
+            // Idealmente podria exisitir diferentes excepciones para cada tipo de restriccion que no pase el password
+            // Ejemplo, password muy corto; no hay caracter "especial"; etc...
             throw new PasswordException("Invalid password!");
         }
     }
